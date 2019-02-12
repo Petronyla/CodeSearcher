@@ -5,7 +5,7 @@ The task is to implement simple search engine on top of source code repositories
 ## Description
 
 Your program receives a path to a directory that contains source code. It will traverse the directory 
-recursively and index the text files. Your program then will provide users the ability to query the indexed files.
+recursively and index the text files. Your program will provide users the ability to query the indexed files.
 
 ### Reverse index
 
@@ -15,7 +15,7 @@ Imagine you have 2 documents `doc1` and `doc2`. `doc1` contains words `a` and `b
 ```
 a - 1,2
 b - 1
-c - 1
+c - 2
 ```
 
 ## Supported commands
@@ -37,12 +37,11 @@ c - 1
 ## Requirements
 
 * commands are read from standard input ("CLI")
-* persistent - must retain all data on restart
 
 ### Output format
 
 * `index`: 
-    * Successfully created index for ${project_name}.
+    * Successfully created index for ${directory_name}.
 * `search`: 
     * Found ${x} documents for ${query}. List of files: <br/> * file1 <br/> * file2 
  
@@ -60,7 +59,7 @@ Command: `search +a`
 
 Expected output: 
 ```
-Found ${x} documents for ${query}. List of files: 
+Found 2 documents for "+a". List of files: 
 * doc1.txt 
 * doc2.txt
 ```
@@ -71,7 +70,7 @@ Command: `search +a -b`
 
 Expected output: 
 ```
-Found ${x} documents for ${query}. List of files: 
+Found 1 documents for "+a -b". List of files: 
 * doc2.txt
 ```
 
@@ -81,7 +80,7 @@ Command: `search b c`
 
 Expected output: 
 ```
-Found ${x} documents for ${query}. List of files: 
+Found 2 documents for "b c". List of files: 
 * doc1.txt 
 * doc2.txt
 ```
@@ -98,7 +97,7 @@ Command: `search +MyFileUtils`
 
 Expected output: 
 ```
-Found ${x} documents for ${query}. List of files: 
+Found 2 documents for "+MyFileUtils". List of files: 
 * AntExercise/src/cz/cuni/mff/fileutils/MyFileUtils.java
 * README.md
 ```
